@@ -1,0 +1,48 @@
+{
+  "name": "fufu",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fufu desktop sprite (transparent, always-on-top, click-to-act)",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder -w --x64",
+    "build:win:portable": "electron-builder -w portable --x64"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^24.9.3"
+  },
+  "build": {
+    "appId": "com.fufu.sprite",
+    "productName": "Fufu Sprite",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      "assets/**"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "assets/app-icon.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "installerIcon": "assets/app-icon.ico",
+      "uninstallerIcon": "assets/app-icon.ico",
+      "shortcutName": "Fufu Sprite"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fufu Sprite</title>
+    <style>
+      html, body { width: 100%; height: 100%; margin: 0; background: rgba(0,0,0,0); overflow: hidden; }
+      #stage { width: 300px; height: 300px; position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+      #sprite { width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+      #chat { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 300px; height: 300px; display: none; background: rgba(255,255,255,0.92); color: #222; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.25); overflow: hidden; }
+      #chat.visible { display: flex; flex-direction: column; }
+      .chat-header { height: 36px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; background: rgba(240,240,240,0.95); border-bottom: 1px solid rgba(0,0,0,0.1); }
+      #chat-close { border: none; background: transparent; font-size: 18px; cursor: pointer; line-height: 1; }
+      .chat-messages { flex: 1; padding: 10px; overflow: auto; }
+      .chat-input { display: flex; gap: 8px; padding: 10px; border-top: 1px solid rgba(0,0,0,0.1); }
+      #chat-text { flex: 1; }
+    </style>
+  </head>
+  <body>
+    <div id="chat" class="">
+      <div class="chat-header">
+        <span>Chat</span>
+        <button id="chat-close" title="关闭">×</button>
+      </div>
+      <div class="chat-messages"></div>
+      <div class="chat-input">
+        <input id="chat-text" type="text" placeholder="输入消息..." />
+        <button id="chat-send">发送</button>
+      </div>
+    </div>
+    <div id="stage">
+      <img id="sprite" alt="sprite">
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
